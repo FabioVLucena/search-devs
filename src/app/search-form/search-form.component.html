@@ -1,0 +1,9 @@
+<form [formGroup]="searchForm">
+  <input
+    id="username"
+    type="text"
+    formControlName="username"
+    placeholder="Search"
+  />
+  <app-button (submit)="onSubmit()" />
+</form>

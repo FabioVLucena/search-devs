@@ -1,0 +1,12 @@
+h1 {
+  font-size: 80px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--blue);
+}
+
+h1 span {
+  color: var(--purple);
+}

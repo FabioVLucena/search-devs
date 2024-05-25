@@ -1,0 +1,28 @@
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+}
+
+form input {
+  width: 60%;
+  padding: 12px 20px;
+  margin-right: 24px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: var(--gray-200);
+  border-width: 1px;
+  border-radius: 8px;
+  outline: none;
+}
+
+form input:focus {
+  border-color: var(--purple);
+}
+
+form input::placeholder {
+  font-size: medium;
+  color: var(--gray-400);
+}
