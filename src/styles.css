@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --blue: #0069ca;
+  --purple: #8c19d2;
+  --purple-200: #9b1ce8;
+  --gray-200: #e2e8f0;
+  --gray-400: #a0aec0;
+}
+
+body {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
