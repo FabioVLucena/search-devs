@@ -1,0 +1,8 @@
+<div class="container">
+  <div *ngIf="href; else textContent">
+    <a href="{{ href }}" target="_blank">{{ label }}</a>
+  </div>
+  <ng-template #textContent>
+    <p>{{ label }}</p>
+  </ng-template>
+</div>

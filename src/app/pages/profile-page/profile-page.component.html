@@ -1,6 +1,10 @@
 <app-nav-bar />
 
-<div class="container">
-  <app-profile-info [username]="username" />
-  <app-repository-list [username]="username" />
+<div class="container" *ngIf="profile; else loading">
+  <app-profile-info [profile]="profile" />
+  <app-repository-list [repositories]="repositories" />
 </div>
+
+<ng-template #loading>
+  <app-loading [message]="'Carregando os dados do perfil...'"></app-loading>
+</ng-template>

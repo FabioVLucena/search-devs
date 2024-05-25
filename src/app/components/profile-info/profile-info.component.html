@@ -1,12 +1,28 @@
 <div class="container">
   <img
     src="{{ profile.avatar_url }}"
-    alt="Foto de perfil do desenvolvedor ${{ profile.name }}"
+    alt="Foto de perfil do desenvolvedor {{ profile.name }}"
   />
-  <h1>{{ profile.name }}</h1>
-  <p>{{ profile.login }}</p>
+
+  <div class="name-container">
+    <h1>{{ profile.name }}</h1>
+    <p>&#64;{{ profile.login }}</p>
+  </div>
 </div>
 
-<p>{{ profile.bio }}</p>
+<p class="bio">{{ profile.bio }}</p>
 
-// IconText
+<app-icon-text label="{{ profile.followers }} seguidores" />
+<app-icon-text
+  label="{{ profile.following }} seguindo"
+  style="margin-bottom: 8px"
+/>
+
+<app-icon-text label="{{ profile.company }}" />
+<app-icon-text label="{{ profile.location }}" />
+<app-icon-text label="{{ profile.email }}" />
+<app-icon-text label="{{ profile.blog }}" href="{{ profile.blog }}" />
+<app-icon-text
+  label="&#64;{{ profile.twitter_username }}"
+  href="https://x.com/{{ profile.twitter_username }}"
+/>

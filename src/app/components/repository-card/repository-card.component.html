@@ -1,8 +1,8 @@
-<h1>{{ repository.name }}</h1>
-<p>{{ repository.description }}</p>
+<a href="{{ repository.html_url }}" target="_blank">{{ repository.name }}</a>
+<p class="description">{{ repository.description }}</p>
 
 <div class="container">
   <p><span>Icon</span> {{ repository.stargazers_count }}</p>
-  <span>.</span>
+  <p class="separator-point">•</p>
   <p>Atualizado há {{ repository.updated_at }} dias</p>
 </div>

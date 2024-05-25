@@ -4,6 +4,7 @@ form {
   align-items: center;
   justify-content: center;
   width: 900px;
+  height: 80px;
 }
 
 form input {
@@ -26,6 +27,7 @@ form input {
 }
 
 form input:focus {
+  border-width: 2px;
   border-color: var(--purple);
 }
 

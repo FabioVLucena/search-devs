@@ -1,26 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Profile } from '../../interfaces/profile';
-import { GithubService } from '../../github.service';
+import { IconTextComponent } from '../icon-text/icon-text.component';
 
 @Component({
   selector: 'app-profile-info',
   standalone: true,
-  imports: [],
+  imports: [IconTextComponent],
   templateUrl: './profile-info.component.html',
   styleUrl: './profile-info.component.css',
 })
-export class ProfileInfoComponent implements OnInit {
-  @Input() username: string;
-  profile: Profile;
-
-  constructor(private githubService: GithubService) {}
-
-  ngOnInit(): void {
-    this.githubService
-      .findProfileByUsername(this.username)
-      .subscribe((data: Profile) => {
-        this.profile = data;
-        console.log(this.profile);
-      });
-  }
+export class ProfileInfoComponent {
+  @Input() profile: Profile;
 }
