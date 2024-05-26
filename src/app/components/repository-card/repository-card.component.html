@@ -2,7 +2,20 @@
 <p class="description">{{ repository.description }}</p>
 
 <div class="container">
-  <p><span>Icon</span> {{ repository.stargazers_count }}</p>
+  <img class="icon" src="/icons/star_icon.svg" />
+  <p>
+    {{ repository.stargazers_count }}
+  </p>
   <p class="separator-point">•</p>
-  <p>Atualizado há {{ repository.updated_at }} dias</p>
+  <p *ngIf="isSameDay(repository.updated_at); else isNotSameDay">
+    Atualizado há
+    {{ calculateHoursDifference(repository.updated_at) }} horas
+  </p>
+
+  <ng-template #isNotSameDay>
+    <p>
+      Atualizado há
+      {{ calculateDaysDifference(repository.updated_at) }} dias
+    </p>
+  </ng-template>
 </div>

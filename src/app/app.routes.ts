@@ -6,6 +6,6 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
-  { path: 'perfil', component: ProfilePageComponent },
+  { path: 'perfil/:username', component: ProfilePageComponent },
   { path: '**', component: NotFoundPageComponent },
 ];

@@ -5,8 +5,9 @@ import { RepositoryListComponent } from '../../components/repository-list/reposi
 import { Profile } from '../../interfaces/profile';
 import { Repository } from '../../interfaces/repository';
 import { GithubService } from '../../services/github.service';
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { LoadingComponent } from '../../components/loading/loading.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -16,30 +17,34 @@ import { LoadingComponent } from '../../components/loading/loading.component';
     ProfileInfoComponent,
     RepositoryListComponent,
     LoadingComponent,
-    NgIf,
+    CommonModule,
   ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.css',
 })
 export class ProfilePageComponent implements OnInit {
-  username: string = 'FabioVLucena';
+  username: string;
+  errorMessage: string;
 
   profile: Profile;
   repositories: Repository[];
 
-  constructor(private githubService: GithubService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private githubService: GithubService
+  ) {}
 
   fetchProfileData(): void {
-    this.githubService.findProfileByUsername(this.username).subscribe(
-      (response: Profile) => {
+    this.githubService.findProfileByUsername(this.username).subscribe({
+      next: (response: Profile) => {
         console.log('---------Profile---------');
         console.log(response);
         this.profile = response;
       },
-      (error) => {
+      error: (error: any) => {
         console.error('Error:', error);
-      }
-    );
+      },
+    });
   }
 
   fetchRepositoriesData(): void {
@@ -56,6 +61,9 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const routeParams = this.route.snapshot.paramMap;
+    this.username = routeParams.get('username');
+
     this.fetchProfileData();
     this.fetchRepositoriesData();
   }

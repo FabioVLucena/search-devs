@@ -20,7 +20,7 @@ form input {
 
   font-size: medium;
 
-  background: url("../../../../public/search_icon.png");
+  background-image: url("/icons/search_icon.svg");
   background-size: 18px 18px;
   background-position: 10px 10px;
   background-repeat: no-repeat;

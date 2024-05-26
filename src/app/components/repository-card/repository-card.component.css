@@ -19,14 +19,16 @@ a {
   height: 72px;
   color: var(--gray-800);
   margin: 16px 0px;
+  overflow: hidden;
 }
 
 .container {
   display: flex;
+  align-items: center;
 }
 
 .container > * {
-  margin-top: 0px;
+  margin: 0px;
   padding-right: 8px;
   color: var(--gray-800);
   font-size: 14px;
