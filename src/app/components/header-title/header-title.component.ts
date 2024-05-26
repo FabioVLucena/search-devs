@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -12,4 +12,17 @@ import { RouterModule } from '@angular/router';
 export class HeaderTitleComponent {
   @Input() fontSize: number | undefined;
   @Input() fontWeight: number | undefined;
+
+  @HostBinding('style.height') height: string = '150px';
+  @HostBinding('style.width') width: string = '100%';
+
+  @Input()
+  set setHeight(height: string) {
+    this.height = height;
+  }
+
+  @Input()
+  set setWidth(width: string) {
+    this.width = width;
+  }
 }

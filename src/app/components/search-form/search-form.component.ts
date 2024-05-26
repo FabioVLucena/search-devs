@@ -1,17 +1,27 @@
-import { Component, HostListener } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
+import { CommonModule } from '@angular/common';
+import { Component, HostBinding, HostListener, Input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-search-form',
   standalone: true,
-  imports: [ButtonComponent, ReactiveFormsModule],
+  imports: [ButtonComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.css',
 })
 export class SearchFormComponent {
   constructor(private router: Router, private formBuilder: FormBuilder) {}
+
+  @Input() justifyContent: string = 'center';
+
+  @HostBinding('style.height') height: string = '150px';
+
+  @Input()
+  set setHeight(height: string) {
+    this.height = height;
+  }
 
   searchForm = this.formBuilder.group({
     username: '',

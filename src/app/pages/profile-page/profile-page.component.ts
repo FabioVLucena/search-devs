@@ -9,6 +9,7 @@ import { Profile } from '../../interfaces/profile';
 import { Repository } from '../../interfaces/repository';
 import { GithubService } from '../../services/github.service';
 import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-profile-page',
@@ -28,13 +29,15 @@ export class ProfilePageComponent implements OnInit {
   username: string;
   errorMessage: string;
   isLoading: boolean = true;
+  hideNavBar: boolean = false;
 
   profile: Profile;
   repositories: Repository[];
 
   constructor(
     private route: ActivatedRoute,
-    private githubService: GithubService
+    private githubService: GithubService,
+    private responsive: BreakpointObserver
   ) {}
 
   fetchProfileData(): void {
@@ -77,5 +80,11 @@ export class ProfilePageComponent implements OnInit {
 
     this.fetchProfileData();
     this.fetchRepositoriesData();
+
+    this.responsive.observe('(max-width: 768px)').subscribe((result) => {
+      if (!result.matches) {
+        this.hideNavBar = true;
+      }
+    });
   }
 }

@@ -1,4 +1,9 @@
-<form [formGroup]="searchForm">
+<form
+  [formGroup]="searchForm"
+  [ngStyle]="{
+    'justify-content': justifyContent
+  }"
+>
   <input
     id="username"
     type="text"
