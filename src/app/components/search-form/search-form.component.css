@@ -1,27 +1,31 @@
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+}
+
 form {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 900px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
 }
 
 form input {
-  width: 60%;
-  padding: 10px 40px;
-  margin-right: 24px;
+  width: 38%;
+  padding: 14px 40px;
   box-sizing: border-box;
   border-style: solid;
   border-color: var(--gray-200);
-  border-width: 1px;
-  border-radius: 8px;
+  border-width: 2px;
+  border-radius: 100px;
   outline: none;
 
   font-size: medium;
 
   background-image: url("/icons/search_icon.svg");
-  background-size: 18px 18px;
   background-position: 10px 10px;
   background-repeat: no-repeat;
 }
@@ -34,4 +38,35 @@ form input:focus {
 form input::placeholder {
   font-size: medium;
   color: var(--gray-400);
+}
+
+form .button {
+  margin-left: 24px;
+}
+
+@media (max-device-width: 768px) {
+  :host {
+    height: 48px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form input {
+    width: 80%;
+    font-size: 24px;
+    padding: 24px 48px;
+    background-size: 28px 28px;
+    background-position: 12px 24px;
+  }
+
+  form input::placeholder {
+    font-size: 24px;
+    color: var(--gray-400);
+  }
+
+  form .button {
+    display: none;
+  }
 }
