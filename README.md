@@ -100,6 +100,30 @@ ng build
 cd /dist
 ```
 
+## Sobre o projeto
+
+### Ferramentas
+
+O Angular é um framework robusto com diversas implementações que facilitam a manipulação de DOM, roteamento do projeto e manipulação de dados. Fornecendo também configurações padronizadas e ferramentas integradas que aumentam a produtividade e ajudam nas boas práticas de desenvolvimento.
+
+O Docker é um software de código aberto usado para implantar aplicativos dentro de containers virtuais. Facilitando o funcionamento dessas aplicações em diferentes ambientes e melhorando as práticas de escalonamento. Além de fornecer melhor desempenho e economia de espaço, pois suas praticas são baseadas em instalar apenas o necessário para o funcionamento do projeto.
+
+### Estrutura
+
+```
+/src
+  /app           'aplicação e configurações'
+    /components  'componentes compartilhados'
+    /interfaces  'interfaces de dados e dtos'
+    /pages       'paginas da aplicação'
+    /services    'services da aplicação'
+  /assets        'imagens'
+    /icons       'icones'
+```
+
+Optei por não escolher nenhuma biblioteca de componentes para ter liberdade total de costumização, construir o passo a passo te fornece mais controle e facilita a sua localização no código.
+
+
 ## Autor
 
 [Fabio Vital Lucena da Silva](https://www.linkedin.com/in/fabio-vital-lucena/)
