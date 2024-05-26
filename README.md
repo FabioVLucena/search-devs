@@ -1,27 +1,105 @@
-# FirstApp
+# Search Devs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1.
+## Descrição
 
-## Development server
+Search Devs é uma aplicação Angular que busca perfils e repositórios da API pública do GitHub.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias utilizadas
 
-## Code scaffolding
+[![My Skills](https://skillicons.dev/icons?i=typescript,nodejs,angular,docker,github)](https://skillicons.dev)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Especificações
+
+- [Node](https://nodejs.org/en/download/package-manager) v20.13.1
+- [Npm](https://nodejs.org/en/download/package-manager) v10.8.0
+- Angular CLI v18.0.1 `npm install -g @angular/cli@18`
+- [Docker](https://www.docker.com/products/docker-desktop/) v26.0.0
+- [GitHub](https://desktop.github.com/) v2.44.0
+
+## Como executar o projeto
+
+1. Clone o repositório:
+
+```
+git clone https://github.com/FabioVLucena/search-devs.git
+```
+
+2. Navegue para a pasta do aplicativo:
+
+```
+cd /search-devs
+```
+
+3. Execute a aplicação:
+
+```
+docker-compose up
+```
+
+## Desenvolvimento
+
+1. Clone o repositório:
+
+```
+git clone https://github.com/FabioVLucena/search-devs.git
+```
+
+2. Navegue para a pasta do aplicativo:
+
+```
+cd /search-devs
+```
+
+3. Instalar dependências:
+
+```
+npm i
+```
+
+4. Inicie o servidor:
+
+```
+ng serve
+```
+
+5. Navegue para o endereço do servidor:
+
+```
+http://localhost:4200/
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone o repositório:
 
-## Running unit tests
+```
+git clone https://github.com/FabioVLucena/search-devs.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Navegue para a pasta do aplicativo:
 
-## Running end-to-end tests
+```
+cd /search-devs
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Instalar dependências:
 
-## Further help
+```
+npm i
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+4. Faça um build do projeto:
+
+```
+ng build
+```
+
+5. O artefato de build vai estar na seguinte pasta:
+
+```
+cd /dist
+```
+
+## Autor
+
+[Fabio Vital Lucena da Silva](https://www.linkedin.com/in/fabio-vital-lucena/)
