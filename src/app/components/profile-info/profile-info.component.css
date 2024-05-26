@@ -47,6 +47,7 @@ p {
 .name-container p {
   font-size: 14px;
   color: var(--gray-400);
+  word-wrap: break-word;
 }
 
 .bio {

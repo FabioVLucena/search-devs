@@ -1,8 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
-  font-family: "Nunito", sans-serif;
-  color: red;
+  color: var(--gray-800);
+  font-size: 48px;
 }
 
 h1 span {
-  color: var(--purple);
+  color: var(--blue);
 }
