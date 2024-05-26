@@ -33,3 +33,37 @@ a {
   color: var(--gray-800);
   font-size: 14px;
 }
+
+@media (max-device-width: 768px) {
+  :host {
+    height: 240px;
+    width: 95%;
+    margin: 18px;
+  }
+
+  a {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .description {
+    height: 154px;
+    color: var(--gray-800);
+    margin: 16px 0px;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .container > * {
+    margin: 0px;
+    padding-right: 8px;
+    color: var(--gray-800);
+    font-size: 14px;
+  }
+}

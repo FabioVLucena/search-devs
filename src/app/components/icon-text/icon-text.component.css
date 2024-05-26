@@ -16,3 +16,30 @@ a {
   margin: 0px;
   height: 100%;
 }
+
+@media (max-device-width: 768px) {
+  :host {
+    flex: 1 1 calc(30% - 10px);
+    box-sizing: border-box;
+    margin: 5px;
+  }
+
+  .container {
+    display: inline-block;
+
+    padding: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 32px;
+
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    flex: 1 1 100%;
+  }
+}

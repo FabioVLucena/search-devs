@@ -1,0 +1,54 @@
+<div class="container">
+  <img
+    src="{{ profile.avatar_url }}"
+    alt="Foto de perfil do desenvolvedor {{ profile.name }}"
+  />
+
+  <div class="name-container">
+    <h1>{{ profile.name }}</h1>
+    <p>&#64;{{ profile.login }}</p>
+  </div>
+</div>
+
+<div class="more-info">
+  <app-icon-text
+    iconUrl="/icons/group_icon.svg"
+    label="{{ profile.followers }} seguidores"
+  />
+  <app-icon-text
+    iconUrl="/icons/heart_icon.svg"
+    label="{{ profile.following }} seguindo"
+  />
+</div>
+
+<p class="bio">{{ profile.bio }}</p>
+
+<div class="more-info">
+  <app-icon-text
+    *ngIf="profile.company"
+    iconUrl="/icons/office_icon.svg"
+    label="{{ profile.company }}"
+  />
+  <app-icon-text
+    *ngIf="profile.location"
+    iconUrl="/icons/location_icon.svg"
+    label="{{ profile.location }}"
+  />
+  <app-icon-text
+    *ngIf="profile.email"
+    iconUrl="/icons/email_icon.svg"
+    label="{{ profile.email }}"
+  />
+  <app-icon-text
+    *ngIf="profile.blog"
+    iconUrl="/icons/link_icon.svg"
+    label="{{ profile.blog }}"
+    href="{{ profile.blog }}"
+  />
+  <app-icon-text
+    *ngIf="profile.twitter_username"
+    iconUrl="/icons/twitter_icon.svg"
+    label="&#64;{{ profile.twitter_username }}"
+    href="https://x.com/{{ profile.twitter_username }}"
+  />
+</div>

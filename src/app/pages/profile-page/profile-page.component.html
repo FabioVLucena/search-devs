@@ -1,4 +1,4 @@
-<app-nav-bar *ngIf="hideNavBar" />
+<app-nav-bar *ngIf="isDesktop" />
 
 <app-loading
   *ngIf="isLoading"
@@ -6,7 +6,8 @@
 ></app-loading>
 
 <div class="container" *ngIf="profile">
-  <app-profile-info [profile]="profile" />
+  <app-profile-info [profile]="profile" *ngIf="isDesktop" />
+  <app-profile-info-mobile [profile]="profile" *ngIf="!isDesktop" />
   <app-repository-list [repositories]="repositories" />
 </div>
 

@@ -10,6 +10,7 @@ import { Repository } from '../../interfaces/repository';
 import { GithubService } from '../../services/github.service';
 import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { ProfileInfoMobileComponent } from '../../components/profile-info-mobile/profile-info-mobile.component';
 
 @Component({
   selector: 'app-profile-page',
@@ -17,6 +18,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   imports: [
     NavBarComponent,
     ProfileInfoComponent,
+    ProfileInfoMobileComponent,
     RepositoryListComponent,
     LoadingComponent,
     ErrorMessageComponent,
@@ -29,7 +31,7 @@ export class ProfilePageComponent implements OnInit {
   username: string;
   errorMessage: string;
   isLoading: boolean = true;
-  hideNavBar: boolean = false;
+  isDesktop: boolean = false;
 
   profile: Profile;
   repositories: Repository[];
@@ -83,7 +85,7 @@ export class ProfilePageComponent implements OnInit {
 
     this.responsive.observe('(max-width: 768px)').subscribe((result) => {
       if (!result.matches) {
-        this.hideNavBar = true;
+        this.isDesktop = true;
       }
     });
   }
