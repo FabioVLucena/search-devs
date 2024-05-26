@@ -1,10 +1,13 @@
 <app-nav-bar />
 
-<div class="container" *ngIf="profile; else loading">
+<app-loading
+  *ngIf="isLoading"
+  [message]="'Carregando os dados do perfil...'"
+></app-loading>
+
+<div class="container" *ngIf="profile">
   <app-profile-info [profile]="profile" />
   <app-repository-list [repositories]="repositories" />
 </div>
 
-<ng-template #loading>
-  <app-loading [message]="'Carregando os dados do perfil...'"></app-loading>
-</ng-template>
+<app-error-message *ngIf="errorMessage" [message]="errorMessage" />

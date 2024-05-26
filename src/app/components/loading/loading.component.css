@@ -8,6 +8,8 @@
 
 .container p {
   margin-right: 10px;
+  color: var(--gray-800);
+  font-size: 20px;
 }
 
 .spinner {

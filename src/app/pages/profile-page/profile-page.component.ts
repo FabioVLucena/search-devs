@@ -1,13 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LoadingComponent } from '../../components/loading/loading.component';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { ProfileInfoComponent } from '../../components/profile-info/profile-info.component';
 import { RepositoryListComponent } from '../../components/repository-list/repository-list.component';
 import { Profile } from '../../interfaces/profile';
 import { Repository } from '../../interfaces/repository';
 import { GithubService } from '../../services/github.service';
-import { CommonModule, NgIf } from '@angular/common';
-import { LoadingComponent } from '../../components/loading/loading.component';
-import { ActivatedRoute } from '@angular/router';
+import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
 
 @Component({
   selector: 'app-profile-page',
@@ -17,6 +18,7 @@ import { ActivatedRoute } from '@angular/router';
     ProfileInfoComponent,
     RepositoryListComponent,
     LoadingComponent,
+    ErrorMessageComponent,
     CommonModule,
   ],
   templateUrl: './profile-page.component.html',
@@ -25,6 +27,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfilePageComponent implements OnInit {
   username: string;
   errorMessage: string;
+  isLoading: boolean = true;
 
   profile: Profile;
   repositories: Repository[];
@@ -39,25 +42,33 @@ export class ProfilePageComponent implements OnInit {
       next: (response: Profile) => {
         console.log('---------Profile---------');
         console.log(response);
+        this.isLoading = false;
         this.profile = response;
       },
       error: (error: any) => {
         console.error('Error:', error);
+        this.isLoading = false;
+        this.errorMessage = error;
       },
     });
   }
 
   fetchRepositoriesData(): void {
-    this.githubService.findRepositoriesByUsername(this.username).subscribe(
-      (response: Repository[]) => {
+    this.githubService.findRepositoriesByUsername(this.username).subscribe({
+      next: (response: Repository[]) => {
         console.log('---------Repositories---------');
         console.log(response);
+        this.isLoading = false;
         this.repositories = response;
       },
-      (error) => {
+      error: (error: any) => {
         console.error('Error:', error);
-      }
-    );
+        this.isLoading = false;
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
+    });
   }
 
   ngOnInit(): void {
