@@ -40,6 +40,6 @@ a {
 
 @media (max-width: 600px) {
   :host {
-    flex: 1 1 100%;
+    flex: 1 1 calc(50% - 10px);
   }
 }
