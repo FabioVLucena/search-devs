@@ -25,16 +25,9 @@ a {
   }
 
   .container {
-    display: inline-block;
-
     padding: auto;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 32px;
-
-    background-size: 24px 24px;
-    background-repeat: no-repeat;
-    background-position-y: center;
   }
 }
 

@@ -29,12 +29,7 @@ h1 {
 
 @media (max-device-width: 600px) {
   :host {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    font-size: 1.2em;
   }
 
   h1 {

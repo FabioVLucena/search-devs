@@ -45,13 +45,10 @@ export class ProfilePageComponent implements OnInit {
   fetchProfileData(): void {
     this.githubService.findProfileByUsername(this.username).subscribe({
       next: (response: Profile) => {
-        console.log('---------Profile---------');
-        console.log(response);
         this.isLoading = false;
         this.profile = response;
       },
       error: (error: any) => {
-        console.error('Error:', error);
         this.isLoading = false;
         this.errorMessage = error;
       },
@@ -61,13 +58,10 @@ export class ProfilePageComponent implements OnInit {
   fetchRepositoriesData(): void {
     this.githubService.findRepositoriesByUsername(this.username).subscribe({
       next: (response: Repository[]) => {
-        console.log('---------Repositories---------');
-        console.log(response);
         this.isLoading = false;
         this.repositories = response;
       },
       error: (error: any) => {
-        console.error('Error:', error);
         this.isLoading = false;
       },
       complete: () => {

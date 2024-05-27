@@ -12,9 +12,13 @@ export class GithubService {
 
   constructor(private httpClient: HttpClient) {}
 
+  private sortRepositoriesByStars(repositories: Repository[]): Repository[] {
+    return repositories.sort((a, b) => b.stargazers_count - a.stargazers_count);
+  }
+
   findProfileByUsername(username: string): Observable<Profile> {
     return this.httpClient
-      .get<Profile>(this.baseUrl + '/users/' + username)
+      .get<Profile>(`${this.baseUrl}/users/${username}`)
       .pipe(
         map((response: Profile) => {
           return response;
@@ -28,20 +32,9 @@ export class GithubService {
 
   findRepositoriesByUsername(username: string): Observable<Repository[]> {
     return this.httpClient
-      .get<Repository[]>(this.baseUrl + '/users/' + username + '/repos')
+      .get<Repository[]>(`${this.baseUrl}/users/${username}/repos`)
       .pipe(
-        map((response: Repository[]) => {
-          response.sort((a, b) => {
-            if (a.stargazers_count < b.stargazers_count) {
-              return 1;
-            }
-            if (a.stargazers_count > b.stargazers_count) {
-              return -1;
-            }
-            return 0;
-          });
-          return response;
-        }),
+        map((response: Repository[]) => this.sortRepositoriesByStars(response)),
         catchError((error: any) => {
           console.error('Error:', error);
           return throwError(() => new Error('Nenhum repositório encontrado'));

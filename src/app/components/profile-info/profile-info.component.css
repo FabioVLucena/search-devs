@@ -14,7 +14,6 @@ p {
 
 .container {
   display: flex;
-  flex-direction: row;
   margin-bottom: 10px;
   width: 248px;
 }

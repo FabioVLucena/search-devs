@@ -12,8 +12,6 @@ import { ButtonComponent } from '../button/button.component';
   styleUrl: './search-form.component.css',
 })
 export class SearchFormComponent {
-  constructor(private router: Router, private formBuilder: FormBuilder) {}
-
   @Input() justifyContent: string = 'center';
 
   @HostBinding('style.height') height: string = '150px';
@@ -22,6 +20,8 @@ export class SearchFormComponent {
   set setHeight(height: string) {
     this.height = height;
   }
+
+  constructor(private router: Router, private formBuilder: FormBuilder) {}
 
   searchForm = this.formBuilder.group({
     username: '',
