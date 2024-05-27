@@ -11,3 +11,9 @@ button {
 button:hover {
   background-color: var(--purple-200);
 }
+
+@media (max-device-width: 660px) {
+  button {
+    padding: 14px 34px;
+  }
+}

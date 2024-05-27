@@ -16,3 +16,9 @@ a {
 a span {
   color: var(--purple);
 }
+
+@media (max-device-width: 500px) {
+  a {
+    font-size: 50px;
+  }
+}
